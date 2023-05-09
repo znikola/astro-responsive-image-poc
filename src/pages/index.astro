@@ -1,15 +1,23 @@
 ---
+import flowers1000 from '../assets/pot-flowers-1000w.jpg';
+import flowers1600 from '../assets/pot-flowers-1600w.jpg';
+import flowers500 from '../assets/pot-flowers-500w.jpg';
+import OptimizedImage from '../components/OptimizedImage.astro';
+import '../styles/global.css';
+
+const images = [flowers500, flowers1000, flowers1600];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>Astro</h1>
+
+    <OptimizedImage images={images} defaultImage={flowers500} alt="xxx" />
+  </body>
 </html>

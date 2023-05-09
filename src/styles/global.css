@@ -1,0 +1,89 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  /* 
+  * forces the form input elements 
+  * to inherit the font related properties 
+  */
+  font: inherit;
+}
+
+:root {
+  --ff-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  --clr-primary: darkviolet;
+  --clr-primary-low-opacity: rgba(148, 0, 211, 0.2);
+  --clr-light: white;
+  --clr-text: black;
+
+  --fs-900: clamp(3rem, 10vw + 0.5rem, 6rem);
+  --fs-700: clamp(2rem, 8vw, 4rem);
+  --fs-600: clamp(1.8rem, 7vw, 3rem);
+  --fs-500: clamp(1.6rem, 6vw, 2.5rem);
+  --fs-400: 1.5rem;
+  --fs-300: 1.2rem;
+
+  /* TODO: remove if not used */
+  --fs-800: 3.5rem;
+  --fs-200: 0.875rem;
+
+  --container-width: 85%;
+  --section-space: 2.5rem;
+
+  --graphic-opacity: 20%;
+  --graphic-scale: 1;
+
+  --parallax-position: top;
+  --parallax-size: cover;
+}
+
+@media (min-width: 40em) {
+  :root {
+    --container-width: 65%;
+    --section-space: 5rem;
+
+    --graphic-scale: 2;
+  }
+}
+@media (min-width: 70em) {
+  :root {
+    --parallax-position: center;
+  }
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html:focus-within {
+  /* TODO:#a11y - put in the reduced motion media query */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-sans);
+}
+
+/*
+* prevents elelments (e.g. images) from overflowing
+* and forces them to respect the parent's width
+*/
+img,
+picture,
+svg,
+video {
+  display: block;
+  /* 
+* `max-width` ensures images don't stretch over their original size.
+* if `width` was used, the image would stretch.
+*/
+  max-width: 100%;
+}

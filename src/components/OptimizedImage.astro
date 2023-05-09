@@ -1,0 +1,19 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image, getImage } from 'astro:assets';
+import { buildSrcSet } from './utils';
+
+type Props = {
+  defaultImage: ImageMetadata;
+  images: ImageMetadata[];
+  alt: string;
+};
+const { defaultImage, images, alt } = Astro.props;
+
+const optimizedImages = await Promise.all(
+  images.map((image) => getImage({ src: image }))
+);
+const srcSet = buildSrcSet(optimizedImages);
+---
+
+<Image src={defaultImage} alt={alt} srcset={srcSet} />
