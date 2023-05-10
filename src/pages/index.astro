@@ -1,11 +1,11 @@
 ---
-import flowers1000 from '../assets/pot-flowers-1000w.jpg';
-import flowers1600 from '../assets/pot-flowers-1600w.jpg';
+import flowers300 from '../assets/pot-flowers-300w.jpg';
 import flowers500 from '../assets/pot-flowers-500w.jpg';
+import flowers800 from '../assets/pot-flowers-800w.jpg';
 import OptimizedImage from '../components/OptimizedImage.astro';
 import '../styles/global.css';
 
-const images = [flowers500, flowers1000, flowers1600];
+const images = [flowers300, flowers500, flowers800];
 ---
 
 <html lang="en">
@@ -17,7 +17,11 @@ const images = [flowers500, flowers1000, flowers1600];
   </head>
   <body>
     <h1>Astro</h1>
-
-    <OptimizedImage images={images} defaultImage={flowers500} alt="xxx" />
+    <OptimizedImage
+      images={images}
+      defaultImage={flowers300}
+      alt="some flowers"
+      loading={'eager'}
+    />
   </body>
 </html>

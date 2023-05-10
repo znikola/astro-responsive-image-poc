@@ -7,8 +7,9 @@ type Props = {
   defaultImage: ImageMetadata;
   images: ImageMetadata[];
   alt: string;
+  loading?: 'eager' | 'lazy';
 };
-const { defaultImage, images, alt } = Astro.props;
+const { defaultImage, images, alt, loading = 'lazy' } = Astro.props;
 
 const optimizedImages = await Promise.all(
   images.map((image) => getImage({ src: image }))
@@ -16,4 +17,4 @@ const optimizedImages = await Promise.all(
 const srcSet = buildSrcSet(optimizedImages);
 ---
 
-<Image src={defaultImage} alt={alt} srcset={srcSet} />
+<Image src={defaultImage} alt={alt} srcset={srcSet} loading={loading} />

@@ -81,9 +81,14 @@ picture,
 svg,
 video {
   display: block;
-  /* 
-* `max-width` ensures images don't stretch over their original size.
-* if `width` was used, the image would stretch.
-*/
-  max-width: 100%;
+
+  /* make sure the image takes the full width of the container */
+  width: 100%;
+  /* keeps the aspect ratio */
+  height: auto;
+  /* image won't stretch beyond this */
+  max-width: 1200px;
+
+  /* centers the image */
+  margin: 0 auto;
 }
